@@ -1,0 +1,65 @@
+@use './variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600&family=Poppins:wght@300;400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap');
+
+:root {
+  font-family: $font-primary;
+  color: $text-body;
+  background-color: $bg-white;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: $bg-white;
+}
+
+body,
+input,
+button,
+textarea,
+select {
+  font-family: $font-primary;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  border: 0;
+  outline: 0;
+}
+
+button {
+  cursor: pointer;
+  background: transparent;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.page-shell {
+  min-height: 100vh;
+}

@@ -1,0 +1,338 @@
+@use './variables' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: $bg-white;
+
+  &__topbar {
+    border-bottom: 1px solid #f0f0f0;
+    background: $bg-white;
+  }
+
+  &__topbar-inner,
+  &__main,
+  &__nav-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  &__topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 119px;
+    min-height: 32px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  &__topbar-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+
+    p {
+      margin: 0;
+      color: $text-gray;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    strong {
+      color: $primary-color;
+      font-weight: 600;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+  }
+
+  /* Centralização global do conteúdo principal */
+  &__main-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__main {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Distribui logo, barra e ícones perfeitamente */
+    align-items: center;
+    gap: 32px;
+    min-height: 72px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  &__logo {
+    display: inline-flex;
+    align-items: center;
+    width: 139px;
+
+    img {
+      width: 139px;
+      height: auto;
+    }
+  }
+
+  &__search {
+    position: relative; /* <-- NECESSÁRIO PARA O DROPDOWN */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 630px; /* Mantém a medida do design */
+    height: 48px;
+    padding: 0 20px;
+    border-radius: 10px;
+    background: #f6f5f2;
+    color: $text-gray;
+
+    input {
+      width: 100%;
+      background: transparent;
+      color: $text-body;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      outline: none;
+
+      &::placeholder {
+        color: $text-gray;
+      }
+    }
+
+    img {
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    /* 👇 ESTILOS DO DROPDOWN DE RESULTADOS 👇 */
+    &-dropdown {
+      position: absolute;
+      top: 56px; /* Desloca o dropdown um pouco para baixo do input */
+      left: 0;
+      width: 100%;
+      background: $bg-white;
+      border-radius: 10px;
+      box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12);
+      z-index: 50;
+      max-height: 400px;
+      overflow-y: auto;
+      border: 1px solid #f0f0f0;
+      
+      /* Estilizando a barra de rolagem */
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #dedede;
+        border-radius: 10px;
+      }
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 20px;
+      border-bottom: 1px solid #f0f0f0;
+      cursor: pointer;
+      transition: background 0.2s ease;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background: #fcfcfc;
+      }
+
+      img {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+      }
+
+      &-info {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        p {
+          margin: 0;
+          font-size: 14px;
+          color: $text-body;
+          display: -webkit-box;
+          line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+
+        strong {
+          font-size: 15px;
+          color: $text-body; 
+        }
+      }
+    }
+  }
+
+  &__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.7;
+        transform: translateY(-1px);
+      }
+    }
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__nav {
+    border-top: 1px solid #f0f0f0;
+    box-shadow: $shadow-lg;
+    background: $bg-white;
+  }
+
+  &__nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribui bem as categorias */
+    gap: 24px;
+    min-height: 40px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  &__nav-link {
+    color: $text-gray;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &.is-active {
+      color: $primary-color;
+    }
+
+    &--with-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    img {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+/* Responsividade Básica */
+@media (max-width: $wide) {
+  .header {
+    &__topbar-inner {
+      gap: 44px;
+    }
+
+    &__main {
+      gap: 20px;
+    }
+
+    &__actions {
+      gap: 16px;
+    }
+
+    &__nav-inner {
+      overflow-x: auto;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .header {
+    position: static;
+
+    &__topbar-inner {
+      min-height: auto;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+    }
+
+    &__main {
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    &__search {
+      max-width: 100%;
+    }
+
+    &__actions {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .header {
+    &__topbar-inner,
+    &__main,
+    &__nav-inner {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    &__topbar-item p {
+      font-size: 11px;
+    }
+
+    &__search {
+      height: 44px;
+    }
+
+    &__nav-link {
+      font-size: 11px;
+    }
+  }
+}

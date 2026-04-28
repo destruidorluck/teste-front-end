@@ -1,0 +1,13 @@
+@import './variables.scss';
+
+.products-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $bg-light;
+}
+
+.products-page__main {
+  flex: 1;
+  padding: 40px 0;
+}

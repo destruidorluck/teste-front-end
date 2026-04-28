@@ -1,0 +1,57 @@
+@import './variables.scss';
+
+.product-grid {
+  max-width: 1440px;
+  margin: 60px auto;
+  padding: 0 40px;
+
+  &--loading,
+  &--error {
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 18px;
+    color: $text-gray;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: $desktop) {
+  .product-grid {
+    &__container {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    padding: 0 20px;
+    margin: 40px auto;
+  }
+}
+
+@media (max-width: $tablet) {
+  .product-grid {
+    &__container {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    padding: 0 16px;
+    margin: 30px auto;
+  }
+}
+
+@media (max-width: $mobile) {
+  .product-grid {
+    &__container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    padding: 0 12px;
+    margin: 20px auto;
+  }
+}
