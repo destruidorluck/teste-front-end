@@ -196,41 +196,6 @@ teste-front-end/
 
 ---
 
-## 🎯 Checklist de Requisitos Cumpridos
-
-### ✅ Especificações Técnicas Obrigatórias
-
-- [x] **React + TypeScript**: Implementação completa com tipagem forte
-- [x] **Consumo de API JSON**: Integração com endpoint oficial da Econverse
-- [x] **Modal ao clicar em produto**: Interatividade conforme layout
-- [x] **Pré-processador Sass**: Utilizado em toda a estrutura de estilos
-- [x] **Sem bibliotecas UI**: Nenhuma dependência de Bootstrap, Foundation, etc.
-- [x] **Fidelidade ao layout**: Pixel-perfect conforme Figma
-- [x] **Responsividade**: Funciona em mobile (375px), tablet (768px) e desktop (1920px)
-
-### ✅ Pontos Extras
-
-- [x] **Boas práticas de SEO**:
-  - Meta tags descritivas
-  - `lang="pt-BR"` no HTML
-  - Title e description otimizados
-  - Estrutura semântica com Open Graph pronto para implementação
-
-- [x] **HTML Semântico**:
-  - `<header>`, `<main>`, `<section>`, `<article>`, `<nav>`, `<footer>`
-  - Atributos ARIA para acessibilidade
-  - Roles e labels descritivos para modal
-
-### ✅ Qualidade do Código
-
-- [x] **Organização do projeto**: Estrutura clara por responsabilidade
-- [x] **Lógica bem implementada**: Fetch assíncrono, tratamento de erros, fallback
-- [x] **Componentização**: Componentes reutilizáveis e isolados
-- [x] **Type-safety**: Tipagem TypeScript em toda a aplicação
-- [x] **Validação de tipos**: ESLint + TypeScript configurados
-
----
-
 ## 📱 Responsividade Testada
 
 O projeto foi validado em múltiplas resoluções:
@@ -376,45 +341,4 @@ npm run type-check
 
 ---
 
-## 📧 Contato
-
-Desenvolvido como teste técnico para a vaga de **Desenvolvedor Front-End Jr** na Econverse.
-
-Caso este projeto faça parte de um processo seletivo, fico à disposição para esclarecer:
-- Decisões técnicas e arquiteturais
-- Melhorias futuras propostas
-- Expansão da solução
-- Dúvidas sobre implementação
-
----
-
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=130&color=0:00ffff,35:4b0082,70:111a3a,100:050816&section=footer"/>
----
-
-## Melhorias enterprise aplicadas (abril de 2026)
-
-- Testes automatizados com `Jest` + `Testing Library`.
-- Storybook configurado para desenvolvimento isolado de componentes.
-- Integracao de analytics GA4 via `VITE_GA_MEASUREMENT_ID`.
-- Lazy loading de imagens em listas/vitrines/modais.
-- JSDoc em utilitarios e camada de dados/analytics.
-
-### Novos scripts
-
-```bash
-npm run test
-npm run test:watch
-npm run storybook
-npm run build-storybook
-```
-
-### Analytics (GA4)
-
-1. Copie `.env.example` para `.env.local`.
-2. Defina seu Measurement ID:
-
-```env
-VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-```
-
-Sem a variavel, o tracking fica desativado automaticamente.
