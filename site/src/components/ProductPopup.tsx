@@ -41,7 +41,7 @@ export const ProductPopup: React.FC<ProductPopupProps> = ({
 
         <div className="popup__content">
           <div className="popup__image-section">
-            <img src={product.photo} alt={product.productName} className="popup__image" />
+            <img src={product.photo} alt={product.productName} className="popup__image" loading="lazy" />
           </div>
 
           <div className="popup__info">

@@ -14,18 +14,11 @@ declare module '*.css' {
 }
 
 declare module '*.png' {
-  const src: string;
-  export default src;
-}
-
-// src/custom.d.ts
-
-declare module '*.svg' {
   const content: string;
   export default content;
 }
 
-declare module '*.png' {
+declare module '*.svg' {
   const content: string;
   export default content;
 }
@@ -38,4 +31,12 @@ declare module '*.jpg' {
 declare module '*.jpeg' {
   const content: string;
   export default content;
+}
+
+interface ImportMetaEnv {
+  readonly VITE_GA_MEASUREMENT_ID?: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
 }

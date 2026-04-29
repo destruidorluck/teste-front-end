@@ -30,6 +30,7 @@ export const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) =>
   }, [product]);
 
   if (!isOpen || !product) return null;
+  const totalPrice = product.price * quantity;
 
   return (
     <div className="product-modal" onClick={onClose}>
@@ -48,7 +49,7 @@ export const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) =>
 
         <div className="product-modal__content">
           <div className="product-modal__media">
-            <img src={product.photo} alt={product.productName} className="product-modal__image" />
+            <img src={product.photo} alt={product.productName} className="product-modal__image" loading="lazy" />
           </div>
 
           <div className="product-modal__info">
@@ -56,6 +57,7 @@ export const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) =>
               {product.productName.toUpperCase()}
             </h2>
             <strong className="product-modal__price">{formatPrice(product.price)}</strong>
+            <p className="product-modal__total">Total: {formatPrice(totalPrice)}</p>
             <p className="product-modal__description">
               Many desktop publishing packages and web page editors now many desktop publishing
             </p>

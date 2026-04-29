@@ -40,7 +40,7 @@ export const Footer = () => {
         <div className="footer__main-inner">
           <section className="footer__brand" aria-label="Econverse">
             <a href="#root" className="footer__logo" aria-label="Página inicial da Econverse">
-              <img src={logo} alt="Econverse" />
+              <img src={logo} alt="Econverse" loading="lazy" />
             </a>
 
             <p className="footer__brand-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

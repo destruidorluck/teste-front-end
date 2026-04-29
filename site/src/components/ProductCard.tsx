@@ -15,7 +15,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onProductClic
   return (
     <div className="product-card" onClick={() => onProductClick(product)}>
       <div className="product-card__image-wrapper">
-        <img src={product.photo} alt={product.productName} className="product-card__image" />
+        <img src={product.photo} alt={product.productName} className="product-card__image" loading="lazy" />
       </div>
       
       <div className="product-card__content">

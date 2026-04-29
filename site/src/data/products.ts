@@ -69,6 +69,11 @@ const fallbackResponse: ApiResponse = {
   ],
 };
 
+/**
+ * Type guard para validar o contrato mínimo de resposta da API.
+ * @param data Resposta recebida do endpoint.
+ * @returns `true` quando a estrutura corresponde a `ApiResponse`.
+ */
 const isApiResponse = (data: unknown): data is ApiResponse => {
   if (!data || typeof data !== 'object') {
     return false;
@@ -78,6 +83,10 @@ const isApiResponse = (data: unknown): data is ApiResponse => {
   return Boolean(parsed.success) && Array.isArray(parsed.products);
 };
 
+/**
+ * Carrega produtos da API oficial e aplica fallback local em caso de falha.
+ * @returns Lista de produtos sempre disponível para renderização.
+ */
 export const getProducts = async (): Promise<Product[]> => {
   try {
     const response = await fetch(PRODUCTS_URL);

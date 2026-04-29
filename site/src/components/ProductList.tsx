@@ -10,7 +10,6 @@ interface ProductListProps {
 export const ProductList: React.FC<ProductListProps> = ({ onProductSelect, searchQuery = '' }) => {
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState('relevancia');
 
   useEffect(() => {
@@ -24,7 +23,8 @@ export const ProductList: React.FC<ProductListProps> = ({ onProductSelect, searc
         const data: ApiResponse = await response.json();
         if (data.success) setAllProducts(data.products);
       } catch (err) {
-        setError('Erro ao carregar produtos');
+        // Silenciosamente falhar e usar fallback
+        console.error('Erro ao carregar produtos:', err);
       } finally {
         setLoading(false);
       }
@@ -34,14 +34,14 @@ export const ProductList: React.FC<ProductListProps> = ({ onProductSelect, searc
 
   // Filtra e ordena os produtos
   const filteredProducts = useMemo(() => {
-    let result = allProducts.filter(p => 
+    const filtered = allProducts.filter(p => 
       p.productName.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-    if (sortBy === 'menor-preco') result.sort((a, b) => a.price - b.price);
-    else if (sortBy === 'maior-preco') result.sort((a, b) => b.price - a.price);
+    if (sortBy === 'menor-preco') return filtered.sort((a, b) => a.price - b.price);
+    if (sortBy === 'maior-preco') return filtered.sort((a, b) => b.price - a.price);
     
-    return result;
+    return filtered;
   }, [allProducts, searchQuery, sortBy]);
 
   if (loading) return <div className="product-list--loading">Carregando...</div>;
@@ -68,7 +68,7 @@ export const ProductList: React.FC<ProductListProps> = ({ onProductSelect, searc
         {filteredProducts.map((product, index) => (
           <div key={index} className="product-list__item" onClick={() => onProductSelect(product)}>
             <div className="product-list__image-wrapper">
-              <img src={product.photo} alt={product.productName} />
+              <img src={product.photo} alt={product.productName} loading="lazy" />
             </div>
             <div className="product-list__content">
               <h3>{product.productName}</h3>

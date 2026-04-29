@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
 
-// Imagens principais e Parceiros
 import backFridayImg from '../assets/Backfriday.png';
 import parceirosImg from '../assets/parceiros.png';
 
-// Ícones de Categoria
 import iconTech from '../assets/icontech.svg';
 import iconSupermercado from '../assets/iconsupermercados.png';
 import iconBebidas from '../assets/whiskey.png';
@@ -13,7 +11,6 @@ import iconSaude from '../assets/cuidados-de-saude 1.png';
 import iconEsportes from '../assets/corrida 1.png';
 import iconModa from '../assets/moda 1.png';
 
-// Marcas
 import brandOne from '../assets/Logo-1.png';
 import brandTwo from '../assets/Logo-2.png';
 import brandThree from '../assets/Logo-3.png';
@@ -25,6 +22,7 @@ import { Footer } from '../components/Footer';
 import { ProductModal } from '../components/ProductModal';
 import { ProductShowcase } from '../components/ProductShowcase';
 import { getProducts } from '../data/products';
+import { trackEvent } from '../lib/analytics';
 import { Product } from '../types/product';
 import '../styles/home.scss';
 
@@ -48,8 +46,6 @@ export const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoadingProducts, setIsLoadingProducts] = useState(true);
-
-  // Estado para controlar a categoria ativa
   const [activeCategory, setActiveCategory] = useState('Tecnologia');
 
   useEffect(() => {
@@ -59,12 +55,19 @@ export const Home = () => {
       setProducts(loadedProducts);
       setIsLoadingProducts(false);
     };
+
     loadProducts();
   }, []);
 
   const handleProductSelect = (product: Product) => {
     setSelectedProduct(product);
     setIsModalOpen(true);
+
+    trackEvent('select_product', {
+      product_name: product.productName,
+      price_in_cents: product.price,
+      source: 'home_showcase',
+    });
   };
 
   return (
@@ -72,21 +75,27 @@ export const Home = () => {
       <Header />
 
       <main className="home">
-        {/* Banner Hero */}
         <section
           className="hero"
-          style={{ backgroundImage: `url(${backFridayImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+          style={{
+            backgroundImage: `url(${backFridayImg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
         >
           <div className="hero__container">
             <div className="hero__content">
               <h1>Venha conhecer nossas promoções</h1>
-              <p><strong>50% Off</strong> nos produtos</p>
-              <a href="#top-products" className="hero__button">Ver produto</a>
+              <p>
+                <strong>50% Off</strong> nos produtos
+              </p>
+              <a href="#top-products" className="hero__button">
+                Ver produto
+              </a>
             </div>
           </div>
         </section>
 
-        {/* Listagem de Categorias */}
         <section className="category-strip" aria-label="Categorias em destaque">
           <div className="category-strip__inner">
             {categoryCards.map((category) => (
@@ -96,7 +105,7 @@ export const Home = () => {
                 onClick={() => setActiveCategory(category.name)}
               >
                 <div className="category-strip__icon-container">
-                  <img src={category.icon} alt={`Ícone ${category.name}`} />
+                  <img src={category.icon} alt={`Ícone ${category.name}`} loading="lazy" />
                 </div>
                 <h2>{category.name}</h2>
               </article>
@@ -167,31 +176,24 @@ export const Home = () => {
               <div className="brand-showcase__grid">
                 {brandItems.map((brand) => (
                   <div key={brand.id} className="brand-showcase__item">
-                    <img src={brand.image} alt="Logo Marca" />
+                    <img src={brand.image} alt="Logo Marca" loading="lazy" />
                   </div>
                 ))}
               </div>
 
-              
-            <ProductShowcase
-              products={products}
-              title="Produtos relacionados"
-              linkLabel="Ver todos"
-              onProductSelect={handleProductSelect}
-            />
+              <ProductShowcase
+                products={products}
+                title="Produtos relacionados"
+                linkLabel="Ver todos"
+                onProductSelect={handleProductSelect}
+              />
             </section>
           </>
-
-
         )}
       </main>
 
       <Footer />
-      <ProductModal
-        product={selectedProduct}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      <ProductModal product={selectedProduct} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };
