@@ -35,7 +35,6 @@ export const initAnalytics = (): void => {
 
 /**
  * Dispara um page view manualmente no GA4.
- * @param path Caminho da página que será reportado.
  */
 export const trackPageView = (path: string): void => {
   if (!window.gtag || !GA_MEASUREMENT_ID) {
@@ -52,7 +51,6 @@ export const trackPageView = (path: string): void => {
 /**
  * Registra eventos de interação do usuário.
  * @param eventName Nome do evento no GA4 (ex.: `select_product`).
- * @param params Metadados opcionais do evento.
  */
 export const trackEvent = (eventName: string, params: AnalyticsEventParams = {}): void => {
   if (!window.gtag || !GA_MEASUREMENT_ID) {
