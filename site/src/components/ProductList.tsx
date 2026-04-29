@@ -23,7 +23,6 @@ export const ProductList: React.FC<ProductListProps> = ({ onProductSelect, searc
         const data: ApiResponse = await response.json();
         if (data.success) setAllProducts(data.products);
       } catch (err) {
-        // Silenciosamente falhar e usar fallback
         console.error('Erro ao carregar produtos:', err);
       } finally {
         setLoading(false);
