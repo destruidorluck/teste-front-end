@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import logo from '../assets/Logo.png';
 import ShieldCheck from '../assets/ShieldCheck.svg';
 import Truck from '../assets/Truck.svg';
@@ -20,7 +20,7 @@ interface HeaderProps {
 
 const topBarItems = [
   ['Compra', '100% segura', ShieldCheck],
-  ['Frete grÃ¡tis', 'acima de R$ 200', Truck],
+  ['Frete grátis', 'acima de R$ 200', Truck],
   ['Parcele', 'suas compras', CreditCard],
 ];
 
@@ -29,7 +29,7 @@ const navItems = [
   'Supermercado',
   'Livros',
   'Moda',
-  'LanÃ§amentos',
+  'Lançamentos',
   'Ofertas do dia',
 ];
 
@@ -105,14 +105,14 @@ export const Header: React.FC<HeaderProps> = ({ onSearch }) => {
 
       <div className="header__main-wrapper">
         <div className="header__main">
-          <a href={import.meta.env.BASE_URL} className="header__logo" aria-label="PÃ¡gina inicial">
+          <a href={import.meta.env.BASE_URL} className="header__logo" aria-label="Página inicial">
             <img src={logo} alt="Econverse" />
           </a>
 
           <label className="header__search" aria-label="Busca" ref={searchContainerRef}>
             <input
               type="search"
-              placeholder="O que vocÃª estÃ¡ buscando?"
+              placeholder="O que você está buscando?"
               value={searchValue}
               onChange={handleSearchChange}
               onKeyDown={handleKeyDown}
@@ -168,7 +168,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearch }) => {
               {item}
             </a>
           ))}
-          <a href="#" className="header__nav-link header__nav-link--with-icon">
+          <a href="#newsletter" className="header__nav-link header__nav-link--with-icon">
             <img src={CrownSimple} alt="" />
             Assinatura
           </a>
@@ -177,4 +177,3 @@ export const Header: React.FC<HeaderProps> = ({ onSearch }) => {
     </header>
   );
 };
-
