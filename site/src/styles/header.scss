@@ -56,7 +56,6 @@
     }
   }
 
-  /* Centralização global do conteúdo principal */
   &__main-wrapper {
     width: 100%;
     display: flex;
@@ -66,7 +65,7 @@
   &__main {
     width: 100%;
     display: flex;
-    justify-content: space-between; /* Distribui logo, barra e ícones perfeitamente */
+    justify-content: space-between;
     align-items: center;
     gap: 32px;
     min-height: 72px;
@@ -86,12 +85,12 @@
   }
 
   &__search {
-    position: relative; /* <-- NECESSÁRIO PARA O DROPDOWN */
+    position: relative; 
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 630px; /* Mantém a medida do design */
+    max-width: 630px; 
     height: 48px;
     padding: 0 20px;
     border-radius: 10px;
@@ -119,10 +118,9 @@
       flex-shrink: 0;
     }
 
-    /* 👇 ESTILOS DO DROPDOWN DE RESULTADOS 👇 */
     &-dropdown {
       position: absolute;
-      top: 56px; /* Desloca o dropdown um pouco para baixo do input */
+      top: 56px; 
       left: 0;
       width: 100%;
       background: $bg-white;
@@ -133,7 +131,6 @@
       overflow-y: auto;
       border: 1px solid #f0f0f0;
       
-      /* Estilizando a barra de rolagem */
       &::-webkit-scrollbar {
         width: 6px;
       }
@@ -227,7 +224,7 @@
   &__nav-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Distribui bem as categorias */
+    justify-content: space-between; 
     gap: 24px;
     min-height: 40px;
     padding-top: 12px;
@@ -263,7 +260,6 @@
   }
 }
 
-/* Responsividade Básica */
 @media (max-width: $wide) {
   .header {
     &__topbar-inner {
