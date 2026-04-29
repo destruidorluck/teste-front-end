@@ -1,6 +1,5 @@
 @use './variables' as *;
 
-// Definição da cor do Figma
 $active-purple: #5022ed; 
 
 .home {
@@ -131,7 +130,6 @@ $active-purple: #5022ed;
   }
 }
 
-// --- CATEGORY STRIP MODIFICADO ---
 .category-strip {
   margin-top: 38px;
 
@@ -173,11 +171,9 @@ $active-purple: #5022ed;
       justify-content: center;
       width: 128px;
       height: 128px;
-      // --- MODIFICAÇÃO SOLICITADA (ESTADO NÃO SELECIONADO) ---
       border-radius: 10px;
       background: #F4F4F4; 
       box-shadow: 0 4px 11px 0 rgba(0, 0, 0, 0.13);
-      // -------------------------------------------------------
       transition: all 0.2s ease;
 
       img {
@@ -187,7 +183,6 @@ $active-purple: #5022ed;
       }
     }
 
-    // --- ESTADO SELECIONADO (IGUAL AO FIGMA) ---
     &.is-active {
       h2 {
         color: $active-purple;
@@ -195,11 +190,10 @@ $active-purple: #5022ed;
       }
 
       .category-strip__icon-container {
-        background: #ffffff; // Fica branco quando selecionado
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); // Sombra um pouco mais forte
+        background: #ffffff; 
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
 
         img {
-          // Filtro para deixar o ícone roxo se for uma imagem preta
           filter: invert(19%) sepia(94%) saturate(4171%) hue-rotate(248deg) brightness(88%) contrast(106%);
         }
       }
@@ -207,7 +201,6 @@ $active-purple: #5022ed;
   }
 }
 
-// --- RESTO DO CÓDIGO ---
 .product-showcase {
   margin-top: 78px;
 
