@@ -1,7 +1,7 @@
 @use './variables' as *;
 
 .footer {
-  margin-top: 90px;
+  margin-top: 40px;
   background: $bg-white;
 
   &__newsletter {
@@ -20,12 +20,14 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, auto);
     align-items: center;
-    gap: 28px;
-    min-height: 162px;
+    gap: 36px;
+    min-height: 102px;
+    padding-top: 24px;
+    padding-bottom: 24px;
   }
 
   &__newsletter-copy {
-    max-width: 520px;
+    max-width: 413px;
     color: $bg-white;
   }
 
@@ -38,35 +40,35 @@
   }
 
   &__newsletter-text {
-    margin: 8px 0 0;
+    margin: 10px 0 0;
     color: $bg-white;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 300;
-    line-height: 1.3;
+    line-height: 1.34;
   }
 
   &__newsletter-form {
     width: 100%;
-    max-width: 720px;
+    max-width: 530px;
   }
 
   &__newsletter-fields {
     display: grid;
-    grid-template-columns: minmax(0, 233px) minmax(0, 233px) auto;
+    grid-template-columns: minmax(0, 184px) minmax(0, 184px) minmax(0, 146px);
     align-items: center;
     gap: 8px;
   }
 
   &__input {
-    height: 42px;
-    padding: 0 24px;
+    height: 32px;
+    padding: 0 12px;
     border: 1px solid #e7e7e7;
-    border-radius: 8px;
+    border-radius: 4px;
     background: $bg-white;
     color: #676767;
-    font-size: 14px;
+    font-size: 10px;
     font-weight: 400;
-    line-height: 18px;
+    line-height: 12px;
 
     &::placeholder {
       color: #676767;
@@ -74,12 +76,12 @@
   }
 
   &__submit {
-    height: 42px;
-    padding: 0 38px;
-    border-radius: 8px;
+    height: 32px;
+    padding: 0 20px;
+    border-radius: 4px;
     background: $secondary-color;
     color: #161615;
-    font-size: 14px;
+    font-size: 10px;
     font-weight: 600;
     line-height: 12px;
     text-transform: uppercase;
@@ -89,16 +91,16 @@
   &__consent {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    margin-top: 10px;
+    gap: 4px;
+    margin-top: 8px;
     color: $bg-white;
-    font-size: 14px;
+    font-size: 10px;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.2;
 
     input {
-      width: 15px;
-      height: 15px;
+      width: 10px;
+      height: 10px;
       accent-color: $secondary-color;
     }
   }
@@ -109,18 +111,18 @@
 
   &__main-inner {
     display: grid;
-    grid-template-columns: minmax(240px, 360px) 1px minmax(0, 1fr);
-    gap: 62px;
+    grid-template-columns: minmax(220px, 379px) 1px minmax(0, 1fr);
+    gap: 40px;
     align-items: start;
-    padding-top: 42px;
-    padding-bottom: 42px;
+    padding-top: 30px;
+    padding-bottom: 28px;
   }
 
   &__brand {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 26px;
+    gap: 18px;
   }
 
   &__logo {
@@ -134,26 +136,26 @@
   }
 
   &__brand-text {
-    max-width: 354px;
+    max-width: 230px;
     margin: 0;
     color: $text-body;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 300;
-    line-height: 1.45;
+    line-height: 1.3;
   }
 
   &__social {
     display: inline-flex;
     align-items: center;
-    gap: 26px;
+    gap: 20px;
   }
 
   &__social-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
     color: #4a4a4a;
     transition: color 0.2s ease, transform 0.2s ease;
 
@@ -165,7 +167,7 @@
 
   &__divider {
     width: 1px;
-    height: 198px;
+    height: 95px;
     background: rgba(40, 40, 40, 0.18);
   }
 
@@ -173,35 +175,35 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 80px;
+    gap: 72px;
   }
 
   &__column {
-    min-width: 140px;
+    min-width: 98px;
   }
 
   &__title {
     margin: 0;
     color: rgba(34, 34, 34, 0.71);
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
-    line-height: 16px;
+    line-height: 1;
   }
 
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin: 20px 0 0;
+    gap: 10px;
+    margin: 14px 0 0;
     padding: 0;
     list-style: none;
 
     li,
     a {
       color: rgba(34, 34, 34, 0.71);
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 400;
-      line-height: 16px;
+      line-height: 1.2;
       text-decoration: none;
     }
 
@@ -218,7 +220,7 @@
   }
 
   &__bottom {
-    min-height: 46px;
+    min-height: 32px;
     border-top: 1px solid #ececec;
     background: $bg-white;
     display: grid;
@@ -228,7 +230,7 @@
     p {
       margin: 0;
       color: $text-body;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 300;
       line-height: 1.2;
     }
@@ -246,8 +248,9 @@
     &__newsletter-inner {
       grid-template-columns: 1fr;
       gap: 16px;
-      padding-top: 24px;
-      padding-bottom: 24px;
+      min-height: auto;
+      padding-top: 22px;
+      padding-bottom: 22px;
     }
 
     &__newsletter-fields {
@@ -256,7 +259,7 @@
 
     &__main-inner {
       grid-template-columns: 1fr;
-      gap: 28px;
+      gap: 22px;
     }
 
     &__divider {
@@ -264,7 +267,7 @@
     }
 
     &__links {
-      gap: 36px;
+      gap: 24px;
       flex-wrap: wrap;
     }
   }
